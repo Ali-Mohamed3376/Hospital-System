@@ -1,0 +1,102 @@
+﻿@using Hospital.DAL.Data.Models;
+@model IEnumerable<DoctorVM>
+@{
+    var doctors = Model;
+    var message = TempData[ToasterMessage.Operation] as string;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/IndexStyle.css" />
+}
+
+<div class="container " id="message">
+    <div class="row">
+        <div class="col">
+            @switch (message)
+            {
+                case ToasterMessage.Add:
+                    <div class="bg-success w-50 text-light m-auto fs-3 fw-bold text-center mb-4 ">
+                        <p>@message</p>
+                    </div>
+                    break;
+                case ToasterMessage.Update:
+                    <div class="bg-success opacity-75 w-50 text-light m-auto fs-3 fw-bold text-center mb-4 ">
+                        <p>@message</p>
+                    </div>
+                    break;
+                case ToasterMessage.Delete:
+                    <div class="bg-danger w-50 text-light m-auto fs-3 fw-bold text-center mb-4 ">
+                        <p>@message</p>
+                    </div>
+                    break;
+                default:
+                    break;
+            }
+       </div>
+   </div>
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-between">
+            <div class="text-black text-lg-start fs-2 fw-bold ">
+                <p>Doctors</p>
+            </div>
+            <div>
+                <a asp-action="Add" asp-controller="Hospital" class="btn btn-outline-primary text-lg-start fs-2 fw-bold">+Add Doctor</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="text-black text-lg-start fs-4 fw-bold">
+                        <td>#Id</td>
+                        <td>Name</td>
+                        <td>Specialization</td>
+                        <td>PerofrmancRate</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var doctor in doctors)
+                    {
+                        <tr class="text-lg-start">
+                            <td>@doctor.Id</td>
+                            <td>@doctor.Name</td>
+                            <td>@doctor.Specialization</td>
+                            <td>@doctor.PerofrmancRate%</td>
+                            <td><a asp-action="Details" asp-controller="Hospital" class="btn btn-outline-primary" asp-route-id="@doctor.Id">Details</a></td>
+                            <td><a asp-action="Update" asp-controller="Hospital" class="btn btn-outline-success" asp-route-id="@doctor.Id">Update</a></td>
+                            <td>
+                                <form asp-action="Delete" asp-route-id="@doctor.Id" method="post">
+                                    <div>
+                                        <button class="btn btn-outline-danger">Delete</button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var x = document.getElementById('message')
+    setTimeout(function () {
+        x.style.display = "none";
+        console.log("Done ya Elwaaa")
+    }, 2000);
+</script>

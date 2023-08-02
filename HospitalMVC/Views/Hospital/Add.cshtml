@@ -1,0 +1,51 @@
+﻿@model DoctorAddVM
+
+@{
+    var doctor = Model;
+}
+
+
+<div class="containre">
+    <div class="row">
+        <div class="col-6 m-auto">
+
+            <form asp-action="Add" method="post">
+
+                <div class="form-group col-12 ">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group col-12">
+                    <label asp-for="Salary"></label>
+                    <input asp-for="Salary" type="number" class="form-control" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-group col-12 ">
+                    <label asp-for="Specialization"></label>
+                    <input asp-for="Specialization" type="text" class="form-control" />
+                    <span asp-validation-for="Specialization" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-group col-12">
+                    <label asp-for="PerofrmancRate"></label>
+                    <input asp-for="PerofrmancRate" type="text" class="form-control" />
+                    <span asp-validation-for="PerofrmancRate" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="col-12 text-center">
+                    <button id="addButton" class="btn btn-success fs-5 fw-bold">Add</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}

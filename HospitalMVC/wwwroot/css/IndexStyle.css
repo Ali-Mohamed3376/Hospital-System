@@ -1,0 +1,12 @@
+﻿.toasterMessage{
+    width:30%;
+    position:absolute;
+    top:0;
+    right:0;
+    color:white;
+    background-color:green;
+    font-size:larger;
+    font-weight:600;
+    padding:20px;
+
+}

@@ -1,0 +1,42 @@
+﻿@model DoctorUpdateVM
+
+@{
+    var doctor = Model;
+}
+
+
+
+<div class="containre">
+    <div class="row">
+        <div class="col-6 m-auto">
+
+            <form asp-action="Update" method="post">
+
+                <div class="form-group col-12 ">
+                    <input asp-for="Id" type="hidden" class="form-control" />
+                </div>
+
+                <div class="form-group col-12 ">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                </div>
+                <br />
+                <div class="form-group col-12">
+                    <label asp-for="Salary"></label>
+                    <input asp-for="Salary" type="number" class="form-control" />
+                </div>
+                <br />
+                <div class="form-group col-12 ">
+                    <label asp-for="Specialization"></label>
+                    <input asp-for="Specialization" type="text" class="form-control" />
+                </div>
+                <br />
+                <br />
+                <div class="col-12 text-center">
+                    <button class="btn btn-success fs-5 fw-bold">Save</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model DoctorDetailsVM
+@section Styles{
+    <link href="@Url.Content("~/css/DeatilsPageStyle.css")" rel="stylesheet" type="text/css" />
+
+}
+
+<div class="parent text-center">
+    <div class="child1">
+        <table class="table table-borderless">
+            <thead style="background-color:cadetblue;color:white;">
+                <tr>
+                    <th>Doctor</th>
+                    <th>Specialization</th>
+                    <th>Perofrmanc Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                    <td>@Model.Name</td>
+                    <td>@Model.Specialization</td>
+                    <td>@Model.PerofrmancRate%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <div class="child2 ">
+        <table class="table caption-top">
+            <caption class="text-center" >List of Patients</caption>
+            <thead style="background-color:cadetblue;color:white;">
+                <tr>
+                    <th>Name</th>
+                    <th>Number Of Issues</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var patient in Model.Patients)
+                {
+                    <tr>
+                        <td>
+                            @patient.Name
+                        </td>
+                        <td>
+                            @patient.NumberOfIssues
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

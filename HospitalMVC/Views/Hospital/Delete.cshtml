@@ -1,0 +1,35 @@
+﻿@model DoctorDeleteVM
+
+@{
+    var doctor = Model;
+}
+
+<div class="container">
+    <div class="row d-flex flex-column align-content-between">
+        <div class="col alert alert-info">
+            <p><span class="text-dark fs-5 fw-bold">Id  </span>@doctor.Id</p>
+            <br />
+            <p><span class="text-dark fs-5 fw-bold">Doctor:  </span> @doctor.Name</p>
+            <br />
+            <p><span class="text-dark fs-5 fw-bold">Salary:  </span>@doctor.Salary</p>
+            <br />
+            <p><span class="text-dark fs-5 fw-bold">PerofrmancRate:  </span>@doctor.PerofrmancRate</p>
+            <br />
+            <p><span class="text-dark fs-5 fw-bold">Specialization:  </span>@doctor.Specialization</p>
+
+        </div>
+        
+
+        <div class="col">
+            <form action="Delete" method="post">
+                <div>
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary "><a asp-action="Index" asp-controller="Hospital">Cancel</a></button>
+        </div>
+    </div>
+</div>
+
